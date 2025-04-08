@@ -1,4 +1,4 @@
-Use Case : When we need to push our code to multiple repositories.
+Use Case : When we need to push our code to multiple repositories.To work on different projects or to keep the work which is not related.
 STEPS:
 git remote add gitlab <url>
 git remote -v
