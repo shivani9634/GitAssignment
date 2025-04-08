@@ -1,0 +1,227 @@
+Comment 1 : In shivani/question3.txt:
+
+> +Steps to combine two commits into one commit:
++git rebase -i HEAD~2
++where adjust the number based on how many commits back we want to go
++git push origin shivani --force
+If you have 4 different commits C1, C2, C3, and C4, how would you combine C2 and C3 into one single commit?
+
+dell@dell-Latitude-3440:~/GIT/GitAssignment/shivani$ git log
+commit 15423fcc7432516b6d8ce38e1065b27a07577be3 (HEAD -> shivani)
+Author: shivani <shivani.poonia@joshsoftware.com>
+Date:   Tue Apr 8 10:45:12 2025 +0530
+
+    changes in question 3
+
+commit c5d814e754646f6f1ad9739a6c77d9a72a657915
+Author: shivani <shivani.poonia@joshsoftware.com>
+Date:   Tue Apr 8 10:41:22 2025 +0530
+
+    changes in question 2
+
+commit ae0f3933d3eac246fcb889716d1fd7e90a2e4dbf
+Author: shivani <shivani.poonia@joshsoftware.com>
+Date:   Tue Apr 8 10:39:18 2025 +0530
+
+    changes
+
+dell@dell-Latitude-3440:~/GIT/GitAssignment/shivani$ git rebase -i HEAD~3
+[detached HEAD f567a5b] changes
+ Date: Tue Apr 8 10:39:18 2025 +0530
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+Successfully rebased and updated refs/heads/shivani.
+dell@dell-Latitude-3440:~/GIT/GitAssignment/shivani$ git push origin shivani --force
+Username for 'https://github.com': shivani9634
+Password for 'https://shivani9634@github.com': 
+Enumerating objects: 14, done.
+Counting objects: 100% (14/14), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (9/9), done.
+Writing objects: 100% (9/9), 1007 bytes | 1007.00 KiB/s, done.
+Total 9 (delta 4), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (4/4), completed with 3 local objects.
+To https://github.com/shivani9634/GitAssignment.git
+   07efaf5..404bcfe  shivani -> shivani
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Comment 2 : In shivani/question6.txt:
+
+> +steps to un-stage changes from the staged area:
++
++git reset HEAD <file>
++git reset
+should also explore git restore
+
+dell@dell-Latitude-3440:~/GIT/GitAssignment/shivani$ nano question4.txt
+dell@dell-Latitude-3440:~/GIT/GitAssignment/shivani$ cat question4.txt
+To delete the latest commit steps are mentioned below:
+git reset --hard HEAD~1
+git push origin shivani --force
+
+To delete multiple commits:
+git reset --hard HEAD~3
+git push origin shivani --force
+dell@dell-Latitude-3440:~/GIT/GitAssignment/shivani$ nano question4.txt
+dell@dell-Latitude-3440:~/GIT/GitAssignment/shivani$ cat question4.txt
+To delete the latest commit steps :
+git reset --hard HEAD~1
+git push origin shivani --force
+
+To delete multiple commits:
+git reset --hard HEAD~3
+git push origin shivani --force
+dell@dell-Latitude-3440:~/GIT/GitAssignment/shivani$ git restore question4.txt
+dell@dell-Latitude-3440:~/GIT/GitAssignment/shivani$ cat question4.txt
+To delete the latest commit steps are mentioned below:
+git reset --hard HEAD~1
+git push origin shivani --force
+
+To delete multiple commits:
+git reset --hard HEAD~3
+git push origin shivani --force
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+COmment 3 : In shivani/question4.txt:
+
+> +To delete the latest commit:
++git reset --hard HEAD~1
++git push origin shivani --force
++
++To delete multiple commits:
++git reset --hard HEAD~3
++git push origin shivani --force
+Is it possible to recover the deleted commit?
+
+dell@dell-Latitude-3440:~/GIT/GitAssignment/shivani$ git reset --hard HEAD~1
+HEAD is now at 843adaa changes in question 4
+dell@dell-Latitude-3440:~/GIT/GitAssignment/shivani$ git push origin shivani --force
+Username for 'https://github.com': shivani9634
+Password for 'https://shivani9634@github.com': 
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 394 bytes | 394.00 KiB/s, done.
+Total 4 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/shivani9634/GitAssignment.git
+   404bcfe..843adaa  shivani -> shivani
+dell@dell-Latitude-3440:~/GIT/GitAssignment/shivani$ git log
+commit 843adaa49dfde0eadc85a1e5b6353b042ebdf754 (HEAD -> shivani, origin/shivani)
+Author: shivani <shivani.poonia@joshsoftware.com>
+Date:   Tue Apr 8 10:54:44 2025 +0530
+
+    changes in question 4
+
+commit 404bcfeb9280707bdece0c528e30fe9dc5b5835c
+Author: shivani <shivani.poonia@joshsoftware.com>
+Date:   Tue Apr 8 10:45:12 2025 +0530
+
+    changes in question 3
+
+commit f567a5bc76378936dcf20dec29bafd13c23bd6a8
+Author: shivani <shivani.poonia@joshsoftware.com>
+Date:   Tue Apr 8 10:39:18 2025 +0530
+
+    changes
+    
+    changes in question 2
+
+commit 07efaf54417a2e3ce94c107ec99bb13a150bd3c4
+Author: shivani <shivani.poonia@joshsoftware.com>
+Date:   Thu Apr 3 17:18:11 2025 +0530
+
+    Added Files
+
+commit c480c350bec6fa4f817c87fbb98adef56fa4df18 (origin/main, origin/HEAD, main)
+Author: shivani9634 <shivani.poonia@joshsoftware.com>
+Date:   Thu Apr 3 16:50:38 2025 +0530
+
+    Initial commit
+dell@dell-Latitude-3440:~/GIT/GitAssignment/shivani$ git reflog
+843adaa (HEAD -> shivani, origin/shivani) HEAD@{0}: reset: moving to HEAD~1
+28d1a7f HEAD@{1}: commit: changes in 4
+843adaa (HEAD -> shivani, origin/shivani) HEAD@{2}: commit: changes in question 4
+404bcfe HEAD@{3}: rebase (finish): returning to refs/heads/shivani
+404bcfe HEAD@{4}: rebase (pick): changes in question 3
+f567a5b HEAD@{5}: rebase (squash): changes
+ae0f393 HEAD@{6}: rebase (start): checkout HEAD~3
+15423fc HEAD@{7}: rebase (finish): returning to refs/heads/shivani
+15423fc HEAD@{8}: rebase (start): checkout HEAD~3
+15423fc HEAD@{9}: commit: changes in question 3
+c5d814e HEAD@{10}: commit: changes in question 2
+ae0f393 HEAD@{11}: commit: changes
+07efaf5 HEAD@{12}: checkout: moving from main to shivani
+c480c35 (origin/main, origin/HEAD, main) HEAD@{13}: clone: from https://github.com/shivani9634/GitAssignment.git
+dell@dell-Latitude-3440:~/GIT/GitAssignment/shivani$ git reset --hard 28d1a7f
+HEAD is now at 28d1a7f changes in 4
+dell@dell-Latitude-3440:~/GIT/GitAssignment/shivani$ git push origin shivani --force
+Username for 'https://github.com': shivani9634
+Password for 'https://shivani9634@github.com': 
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 388 bytes | 388.00 KiB/s, done.
+Total 4 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/shivani9634/GitAssignment.git
+   843adaa..28d1a7f  shivani -> shivani
+dell@dell-Latitude-3440:~/GIT/GitAssignment/shivani$ git log
+commit 28d1a7f1c0fbb565dbacf1030f02e21e085bece3 (HEAD -> shivani, origin/shivani)
+Author: shivani <shivani.poonia@joshsoftware.com>
+Date:   Tue Apr 8 10:58:33 2025 +0530
+
+    changes in 4
+
+commit 843adaa49dfde0eadc85a1e5b6353b042ebdf754
+Author: shivani <shivani.poonia@joshsoftware.com>
+Date:   Tue Apr 8 10:54:44 2025 +0530
+
+    changes in question 4
+
+commit 404bcfeb9280707bdece0c528e30fe9dc5b5835c
+Author: shivani <shivani.poonia@joshsoftware.com>
+Date:   Tue Apr 8 10:45:12 2025 +0530
+
+    changes in question 3
+
+commit f567a5bc76378936dcf20dec29bafd13c23bd6a8
+Author: shivani <shivani.poonia@joshsoftware.com>
+Date:   Tue Apr 8 10:39:18 2025 +0530
+
+    changes
+    
+    changes in question 2
+
+commit 07efaf54417a2e3ce94c107ec99bb13a150bd3c4
+Author: shivani <shivani.poonia@joshsoftware.com>
+Date:   Thu Apr 3 17:18:11 2025 +0530
+
+    Added Files
+
+commit c480c350bec6fa4f817c87fbb98adef56fa4df18 (origin/main, origin/HEAD, main)
+Author: shivani9634 <shivani.poonia@joshsoftware.com>
+Date:   Thu Apr 3 16:50:38 2025 +0530
+
+    Initial commit
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
