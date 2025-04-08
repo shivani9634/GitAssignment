@@ -1,4 +1,4 @@
-To delete the latest commit:
+To delete the latest commit steps are:
 git reset --hard HEAD~1
 git push origin shivani --force
 
